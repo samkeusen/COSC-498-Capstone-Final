@@ -2,13 +2,14 @@ import { useState } from "react";
 import { ColorModeContext, useMode } from "./theme";
 import { CssBaseline, ThemeProvider } from "@mui/material";
 import { Routes, Route } from "react-router-dom";
+
 import Topbar from "./scenes/global/Topbar";
 import Sidebar from "./scenes/global/Sidebar";
 import Dashboard from "./scenes/dashboard";
 import Spending from "./scenes/spending";
 import Resources from "./scenes/resources";
 import ManageCommitments from "./scenes/managecommitments";
-import APIintegration from "./scenes/APIintegration";
+import APIintegration from "./scenes/useraccount";
 import Documentation from "./scenes/documentation";
 import AmazonWebServices from "./scenes/amazonwebservices";
 import MicrosoftAzure from "./scenes/microsoftazure";
@@ -36,7 +37,7 @@ function App() {
               <Route path="/amazonwebservices" element={<AmazonWebServices />} />
               <Route path="/microsoftazure" element={<MicrosoftAzure />} />
               <Route path="/googlecloud" element={<GoogleCloud />} />
-              <Route path="/APIintegration" element={<APIintegration />} />
+              <Route path="/useraccount" element={<APIintegration />} />
               <Route path="/manageiam" element={<ManageIAM />} />
             </Routes>
           </main>

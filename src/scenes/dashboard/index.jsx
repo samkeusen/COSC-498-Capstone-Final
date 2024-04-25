@@ -1,10 +1,8 @@
-import { Box, Button, IconButton, Typography, useTheme } from "@mui/material";
+import { Box, Button, IconButton, Typography, useTheme, Grid } from "@mui/material";
 import { tokens } from "../../theme";
 import { mockCommitments } from "../../data/mockData";
 import DownloadOutlinedIcon from "@mui/icons-material/DownloadOutlined";
-import EmailIcon from "@mui/icons-material/Email";
-import PointOfSaleIcon from "@mui/icons-material/PointOfSale";
-import PersonAddIcon from "@mui/icons-material/PersonAdd";
+
 import Header from "../../components/Header";
 import LineChart from "../../components/LineChart";
 import GeographyChart from "../../components/GeographyChart";
@@ -16,21 +14,21 @@ const Dashboard = () => {
   const colors = tokens(theme.palette.mode);
 
   return (
-    <Box m="20px">
+    <Box m="10px">
       {/* HEADER */}
       <Box display="flex" justifyContent="space-between" alignItems="center">
-        <Header title="DASHBOARD" subtitle="Welcome to your dashboard" />
+        <Header title="DASHBOARD"/>
 
         <Box sx={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center' }}>
   <Box>
     <Button
       sx={{
-        backgroundColor: colors.blueAccent[700],
+        backgroundColor: colors.blueAccent[800],
         color: colors.grey[100],
         fontSize: "14px",
         fontWeight: "bold",
         padding: "10px 20px",
-        marginRight: "10px", // Add margin to separate the buttons
+        marginRight: "10px",
       }}
     >
       <DownloadOutlinedIcon sx={{ mr: "10px" }} />
@@ -40,7 +38,7 @@ const Dashboard = () => {
   <Box>
     <Button
       sx={{
-        backgroundColor: colors.blueAccent[700],
+        backgroundColor: colors.blueAccent[800],
         color: colors.grey[100],
         fontSize: "14px",
         fontWeight: "bold",
@@ -74,11 +72,7 @@ const Dashboard = () => {
             subtitle="Amazon Web Services"
             progress="0.75"
             increase="+14%"
-            icon={
-              <EmailIcon
-                sx={{ color: colors.greenAccent[600], fontSize: "26px" }}
-              />
-            }
+
           />
         </Box>
         <Box
@@ -94,11 +88,7 @@ const Dashboard = () => {
             subtitle="Google Cloud"
             progress="0.50"
             increase="+21%"
-            icon={
-              <PointOfSaleIcon
-                sx={{ color: colors.greenAccent[600], fontSize: "26px" }}
-              />
-            }
+
           />
         </Box>
         <Box
@@ -114,11 +104,7 @@ const Dashboard = () => {
             subtitle="Microsoft Azure"
             progress="0.30"
             increase="+5%"
-            icon={
-              <PersonAddIcon
-                sx={{ color: colors.greenAccent[600], fontSize: "26px" }}
-              />
-            }
+
           />
         </Box>
 
@@ -165,62 +151,78 @@ const Dashboard = () => {
             <LineChart isDashboard={true} />
           </Box>
         </Box>
-        <Box
-          gridColumn="span 4"
-          gridRow="span 2"
-          sx={{
-            backgroundColor: colors.primary[400],
-            overflow: "auto",
+      <Box
+        gridColumn="span 4"
+        gridRow="span 2"
+        sx={{
+          backgroundColor: colors.primary[400],
+          overflow: "auto",
+          borderRadius: '10px',
+          '&::-webkit-scrollbar': {
             borderRadius: '10px',
-            '&::-webkit-scrollbar': {
-              borderRadius: '10px',
-            }
-          }}
+          }
+        }}
+      >
+        <Box
+          display="flex"
+          justifyContent="space-between"
+          alignItems="center"
+          borderBottom={`4px solid ${colors.primary[500]}`}
+          colors={colors.grey[100]}
+          p="15px"
         >
+          <Typography color={colors.grey[100]} variant="h5" fontWeight="600">
+            Commitments 
+          </Typography>
+        </Box>
+        {mockCommitments.map((commitment, i) => (
           <Box
+            key={`${commitment.txId}-${i}`}
             display="flex"
             justifyContent="space-between"
             alignItems="center"
             borderBottom={`4px solid ${colors.primary[500]}`}
-            colors={colors.grey[100]}
             p="15px"
           >
-            <Typography color={colors.grey[100]} variant="h5" fontWeight="600">
-              Commitments 
-            </Typography>
-          </Box>
-          {mockCommitments.map((commitments, i) => (
-            <Box
-              key={`${commitments.txId}-${i}`}
-              display="flex"
-              justifyContent="space-between"
-              alignItems="center"
-              borderBottom={`4px solid ${colors.primary[500]}`}
-              p="15px"
-            >
-              <Box>
-                <Typography
-                  color={colors.greenAccent[500]}
-                  variant="h5"
-                  fontWeight="600"
-                >
-                  {commitments.txId}
-                </Typography>
-                <Typography color={colors.grey[100]}>
-                  {commitments.user}
-                </Typography>
-              </Box>
-              <Box color={colors.grey[100]}>{commitments.date}</Box>
-              <Box
-                backgroundColor={colors.greenAccent[500]}
-                p="5px 10px"
-                borderRadius="4px"
+            <Box>
+              <Typography
+                color={colors.greenAccent[500]}
+                variant="h5"
+                fontWeight="600"
               >
-                ${commitments.cost}
+                {commitment.txId}
+              </Typography>
+              <Typography color={colors.grey[100]}>
+                {commitment.date}
+              </Typography>
+            </Box>
+            <Box color={colors.grey[100]}>{commitment.platform}</Box>
+            <Box>
+              <Typography
+                color={colors.greenAccent[500]}
+                variant="h5"
+                fontWeight="600"
+              >
+                {commitment.progress}
+              </Typography>
+              <Box
+                width="100%"
+                height="8px"
+                borderRadius="5px"
+                bgcolor={colors.grey[300]}
+                mt="5px"
+              >
+                <Box
+                  height="100%"
+                  width={`${commitment.progress * 100}%`}
+                  borderRadius="5px"
+                  bgcolor={colors.greenAccent[500]}
+                />
               </Box>
             </Box>
-          ))}
-        </Box>
+          </Box>
+        ))}
+      </Box>
 
         {/* ROW 3 */}
         <Box
@@ -256,20 +258,10 @@ const Dashboard = () => {
           backgroundColor={colors.primary[400]}
           p="30px"
           borderRadius= '10px'
->
-          {/* Empty Box content here */}
-        </Box>
-        <Box
-          gridColumn="span 4"
-          gridRow="span 2"
-          backgroundColor={colors.primary[400]}
-          p="30px"
-          borderRadius= '10px'
+
         >
           <Typography
-          variant="h5"
-          fontWeight="600"
-          sx={{ marginBottom: "15px" }} 
+          variant="h5" fontWeight="600" sx={{ marginBottom: "15px" }} 
        >
           Global Infrastructure
           </Typography>
@@ -277,6 +269,49 @@ const Dashboard = () => {
           <GeographyChart isDashboard={true} />
           </Box>
         </Box>
+        <Box
+  gridColumn="span 4"
+  gridRow="span 2"
+  backgroundColor={colors.primary[400]}
+  p="30px"
+  borderRadius='10px'
+>
+  <Typography variant="h5" fontWeight="600">
+    Commitment Spending
+  </Typography>
+  <Grid container spacing={3}>
+    <Grid item xs={4} container direction="column" alignItems="center">
+      <ProgressCircle size="120" />
+      <Typography variant="h6" color={colors.grey[100]} mt="15px">
+        AWS
+      </Typography>
+      <Typography variant="h6" color={colors.grey[100]} mt="5px">
+        $500,000
+      </Typography>
+    </Grid>
+    <Grid item xs={4} container direction="column" alignItems="center">
+      <ProgressCircle size="125" />
+      <Typography variant="h6" color={colors.grey[100]} mt="15px">
+        Google Cloud
+      </Typography>
+      <Typography variant="h6" color={colors.grey[100]} mt="5px">
+        $300,000
+      </Typography>
+    </Grid>
+    <Grid item xs={4} container direction="column" alignItems="center">
+      <ProgressCircle size="125" />
+      <Typography variant="h6" color={colors.grey[100]} mt="15px">
+        Microsoft Azure
+      </Typography>
+      <Typography variant="h6" color={colors.grey[100]} mt="5px">
+        $200,000
+      </Typography>
+    </Grid>
+  </Grid>
+</Box>
+
+
+
       </Box>
     </Box>
   ); 

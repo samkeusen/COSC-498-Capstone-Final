@@ -62,17 +62,17 @@ const LineChart = ({ isCustomLineColors = false, isDashboard = false }) => {
         tickSize: 0,
         tickPadding: 5,
         tickRotation: 0,
-        legend: isDashboard ? undefined : "transportation", // added
+        legend: isDashboard ? undefined : "transportation",
         legendOffset: 36,
         legendPosition: "middle",
       }}
       axisLeft={{
         orient: "left",
-        tickValues: 5, // added
+        tickValues: 5,
         tickSize: 3,
         tickPadding: 5,
         tickRotation: 0,
-        legend: isDashboard ? undefined : "count", // added
+        legend: isDashboard ? undefined : "count",
         legendOffset: -40,
         legendPosition: "middle",
       }}

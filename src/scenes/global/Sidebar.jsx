@@ -61,12 +61,12 @@ const Sidebar = () => {
     >
       <ProSidebar collapsed={isCollapsed}>
         <Menu iconShape="square">
-          {/* LOGO AND MENU ICON */}
+          { /* MENU ICON */}
           <MenuItem
             onClick={() => setIsCollapsed(!isCollapsed)}
             icon={isCollapsed ? <MenuOutlinedIcon /> : undefined}
             style={{
-              margin: "10px 0 20px 0",
+              margin: "10px 0 100px 0",
               color: colors.grey[100],
             }}
           >
@@ -86,33 +86,6 @@ const Sidebar = () => {
               </Box>
             )}
           </MenuItem>
-
-          {!isCollapsed && (
-            <Box mb="25px">
-              <Box display="flex" justifyContent="center" alignItems="center">
-                <img
-                  alt="profile-user"
-                  width="80px"
-                  height="80px"
-                  src={`../../logo192.png`}
-                  style={{ cursor: "pointer", borderRadius: "50%" }}
-                />
-              </Box>
-              <Box textAlign="center">
-                <Typography
-                  variant="h3"
-                  color={colors.grey[100]}
-                  fontWeight="bold"
-                  sx={{ m: "10px 0 0 0" }}
-                >
-                  Sam Keusenkothen
-                </Typography>
-                <Typography variant="h5" color={colors.greenAccent[500]}>
-                  Chief Information Officer
-                </Typography>
-              </Box>
-            </Box>
-          )}
 
           <Box paddingLeft={isCollapsed ? undefined : "10%"}>
             <Item

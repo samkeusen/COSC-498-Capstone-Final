@@ -225,204 +225,36 @@ export const mockDataCloudResources = [
   },
 ];
 
-
-export const mockDataInvoices = [
-  {
-    id: 1,
-    name: "Jon Snow",
-    email: "jonsnow@gmail.com",
-    cost: "21.24",
-    phone: "(665)121-5454",
-    date: "03/12/2022",
-  },
-  {
-    id: 2,
-    name: "Cersei Lannister",
-    email: "cerseilannister@gmail.com",
-    cost: "1.24",
-    phone: "(421)314-2288",
-    date: "06/15/2021",
-  },
-  {
-    id: 3,
-    name: "Jaime Lannister",
-    email: "jaimelannister@gmail.com",
-    cost: "11.24",
-    phone: "(422)982-6739",
-    date: "05/02/2022",
-  },
-  {
-    id: 4,
-    name: "Anya Stark",
-    email: "anyastark@gmail.com",
-    cost: "80.55",
-    phone: "(921)425-6742",
-    date: "03/21/2022",
-  },
-  {
-    id: 5,
-    name: "Daenerys Targaryen",
-    email: "daenerystargaryen@gmail.com",
-    cost: "1.24",
-    phone: "(421)445-1189",
-    date: "01/12/2021",
-  },
-  {
-    id: 6,
-    name: "Ever Melisandre",
-    email: "evermelisandre@gmail.com",
-    cost: "63.12",
-    phone: "(232)545-6483",
-    date: "11/02/2022",
-  },
-  {
-    id: 7,
-    name: "Ferrara Clifford",
-    email: "ferraraclifford@gmail.com",
-    cost: "52.42",
-    phone: "(543)124-0123",
-    date: "02/11/2022",
-  },
-  {
-    id: 8,
-    name: "Rossini Frances",
-    email: "rossinifrances@gmail.com",
-    cost: "21.24",
-    phone: "(222)444-5555",
-    date: "05/02/2021",
-  },
-];
-
 export const mockCommitments = [
   {
-    txId: "01e4dsa",
-    user: "johndoe",
-    date: "2021-09-01",
-    cost: "43.95",
+    txId: "aws123",
+    platform: "AWS",
+    startDate: "2022-01-01",
+    endDate: "2023-01-01",
+    totalCost: 8000000,
+    spentCost: 3500000,
+    notes: "Standard AWS Enterprise Agreement for 1 year",
   },
   {
-    txId: "0315dsaa",
-    user: "jackdower",
-    date: "2022-04-01",
-    cost: "133.45",
+    txId: "azure456",
+    platform: "Azure",
+    startDate: "2022-03-15",
+    endDate: "2025-03-15",
+    totalCost: 5000000,
+    spentCost: 2000000,
+    notes: "Azure Enterprise Agreement for 3 years",
   },
   {
-    txId: "01e4dsa",
-    user: "aberdohnny",
-    date: "2021-09-01",
-    cost: "43.95",
-  },
-  {
-    txId: "51034szv",
-    user: "goodmanave",
-    date: "2022-11-05",
-    cost: "200.95",
-  },
-  {
-    txId: "0a123sb",
-    user: "stevebower",
-    date: "2022-11-02",
-    cost: "13.55",
-  },
-  {
-    txId: "01e4dsa",
-    user: "aberdohnny",
-    date: "2021-09-01",
-    cost: "43.95",
-  },
-  {
-    txId: "120s51a",
-    user: "wootzifer",
-    date: "2019-04-15",
-    cost: "24.20",
-  },
-  {
-    txId: "0315dsaa",
-    user: "jackdower",
-    date: "2022-04-01",
-    cost: "133.45",
+    txId: "gcp789",
+    platform: "Google Cloud",
+    startDate: "2022-02-10",
+    endDate: "2023-02-10",
+    totalCost: 6000000,
+    spentCost: 4000000,
+    notes: "Google Cloud Enterprise Agreement for 1 year",
   },
 ];
 
-export const mockBarData = [
-  {
-    country: "AD",
-    "hot dog": 137,
-    "hot dogColor": "hsl(229, 70%, 50%)",
-    burger: 96,
-    burgerColor: "hsl(296, 70%, 50%)",
-    kebab: 72,
-    kebabColor: "hsl(97, 70%, 50%)",
-    donut: 140,
-    donutColor: "hsl(340, 70%, 50%)",
-  },
-  {
-    country: "AE",
-    "hot dog": 55,
-    "hot dogColor": "hsl(307, 70%, 50%)",
-    burger: 28,
-    burgerColor: "hsl(111, 70%, 50%)",
-    kebab: 58,
-    kebabColor: "hsl(273, 70%, 50%)",
-    donut: 29,
-    donutColor: "hsl(275, 70%, 50%)",
-  },
-  {
-    country: "AF",
-    "hot dog": 109,
-    "hot dogColor": "hsl(72, 70%, 50%)",
-    burger: 23,
-    burgerColor: "hsl(96, 70%, 50%)",
-    kebab: 34,
-    kebabColor: "hsl(106, 70%, 50%)",
-    donut: 152,
-    donutColor: "hsl(256, 70%, 50%)",
-  },
-  {
-    country: "AG",
-    "hot dog": 133,
-    "hot dogColor": "hsl(257, 70%, 50%)",
-    burger: 52,
-    burgerColor: "hsl(326, 70%, 50%)",
-    kebab: 43,
-    kebabColor: "hsl(110, 70%, 50%)",
-    donut: 83,
-    donutColor: "hsl(9, 70%, 50%)",
-  },
-  {
-    country: "AI",
-    "hot dog": 81,
-    "hot dogColor": "hsl(190, 70%, 50%)",
-    burger: 80,
-    burgerColor: "hsl(325, 70%, 50%)",
-    kebab: 112,
-    kebabColor: "hsl(54, 70%, 50%)",
-    donut: 35,
-    donutColor: "hsl(285, 70%, 50%)",
-  },
-  {
-    country: "AL",
-    "hot dog": 66,
-    "hot dogColor": "hsl(208, 70%, 50%)",
-    burger: 111,
-    burgerColor: "hsl(334, 70%, 50%)",
-    kebab: 167,
-    kebabColor: "hsl(182, 70%, 50%)",
-    donut: 18,
-    donutColor: "hsl(76, 70%, 50%)",
-  },
-  {
-    country: "AM",
-    "hot dog": 80,
-    "hot dogColor": "hsl(87, 70%, 50%)",
-    burger: 47,
-    burgerColor: "hsl(141, 70%, 50%)",
-    kebab: 158,
-    kebabColor: "hsl(224, 70%, 50%)",
-    donut: 49,
-    donutColor: "hsl(274, 70%, 50%)",
-  },
-];
 
 export const mockPieData = [
   {
@@ -481,7 +313,7 @@ export const mockLineData = [
     color: tokens("dark").blueAccent[300],
     data: [
       { x: "Jan", y: 14000 },
-      { x: "Feb", y: 31000 },  // Higher than AWS this month
+      { x: "Feb", y: 31000 },
       { x: "Mar", y: 15000 },
       { x: "Apr", y: 14000 },
       { x: "May", y: 15000 },
@@ -514,23 +346,21 @@ export const mockLineData = [
   },
 ];
 
-
-
-
+// Infastructure location test data
 
 export const mockGeographyData = [
   // AWS Resources
-  { id: "aws-1", provider: "AWS", resourceType: "VM", lat: 37.7749, lng: -122.4194, region: "USA" },  // San Francisco
-  { id: "aws-2", provider: "AWS", resourceType: "Database", lat: 50.1109, lng: 8.6821, region: "Germany" },  // Frankfurt
-  { id: "aws-3", provider: "AWS", resourceType: "Storage", lat: -33.8688, lng: 151.2093, region: "Australia" },  // Sydney
+  { id: "aws-1", provider: "AWS", resourceType: "VM", lat: 37.7749, lng: -122.4194, region: "USA" },
+  { id: "aws-2", provider: "AWS", resourceType: "Database", lat: 50.1109, lng: 8.6821, region: "Germany" },
+  { id: "aws-3", provider: "AWS", resourceType: "Storage", lat: -33.8688, lng: 151.2093, region: "Australia" }, 
 
   // Azure Resources
   { id: "azure-1", provider: "Azure", resourceType: "VM", lat: 1.3521, lng: 103.8198, region: "Singapore" },
-  { id: "azure-2", provider: "Azure", resourceType: "Database", lat: 52.3676, lng: 4.9041, region: "Netherlands" },  // Amsterdam
-  { id: "azure-3", provider: "Azure", resourceType: "Storage", lat: 34.0522, lng: -118.2437, region: "USA" },  // Los Angeles
+  { id: "azure-2", provider: "Azure", resourceType: "Database", lat: 52.3676, lng: 4.9041, region: "Netherlands" },
+  { id: "azure-3", provider: "Azure", resourceType: "Storage", lat: 34.0522, lng: -118.2437, region: "USA" },
 
   // GCP Resources
-  { id: "gcp-1", provider: "GCP", resourceType: "VM", lat: 35.6895, lng: 139.6917, region: "Japan" },  // Tokyo
-  { id: "gcp-2", provider: "GCP", resourceType: "Database", lat: 55.7558, lng: 37.6173, region: "Russia" },  // Moscow
-  { id: "gcp-3", provider: "GCP", resourceType: "Storage", lat: -23.5505, lng: -46.6333, region: "Brazil" },  // São Paulo
+  { id: "gcp-1", provider: "GCP", resourceType: "VM", lat: 35.6895, lng: 139.6917, region: "Japan" },
+  { id: "gcp-2", provider: "GCP", resourceType: "Database", lat: 55.7558, lng: 37.6173, region: "Russia" },
+  { id: "gcp-3", provider: "GCP", resourceType: "Storage", lat: -23.5505, lng: -46.6333, region: "Brazil" },
 ];
