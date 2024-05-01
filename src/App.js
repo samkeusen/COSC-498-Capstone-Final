@@ -7,11 +7,10 @@ import Topbar from "./scenes/global/Topbar";
 import Sidebar from "./scenes/global/Sidebar";
 import Dashboard from "./scenes/dashboard";
 import Spending from "./scenes/spending";
-import Resources from "./scenes/resources";
 import ManageCommitments from "./scenes/managecommitments";
 import APIintegration from "./scenes/useraccount";
 import Documentation from "./scenes/documentation";
-import AmazonWebServices from "./scenes/amazonwebservices";
+import AWSDashboard from "./scenes/resources";
 import MicrosoftAzure from "./scenes/microsoftazure";
 import GoogleCloud from "./scenes/googlecloud";
 import ManageIAM from "./scenes/manageiam";
@@ -31,10 +30,9 @@ function App() {
             <Routes>
               <Route path="/" element={<Dashboard />} />
               <Route path="/spending" element={<Spending />} />
-              <Route path="/resources" element={<Resources />} />
+              <Route path="/resources" element={<AWSDashboard />} />
               <Route path="/managecommitments" element={<ManageCommitments />} />
               <Route path="/documentation" element={<Documentation />} />
-              <Route path="/amazonwebservices" element={<AmazonWebServices />} />
               <Route path="/microsoftazure" element={<MicrosoftAzure />} />
               <Route path="/googlecloud" element={<GoogleCloud />} />
               <Route path="/useraccount" element={<APIintegration />} />

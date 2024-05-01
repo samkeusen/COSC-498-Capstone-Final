@@ -169,7 +169,7 @@ const Sidebar = () => {
             </Typography>
             <Item
               title="API Integration"
-              to="/APIintegration"
+              to="/useraccount"
               icon={<ApiOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}

@@ -24,7 +24,6 @@ const AWSCredentialForm = ({ open, onClose }) => {
     // Create an AWS service object
     const ec2 = new AWS.EC2();
 
-    // Example: Describe instances using the AWS SDK
     try {
       const data = await ec2.describeInstances().promise();
       console.log('Instances:', data);
@@ -32,7 +31,6 @@ const AWSCredentialForm = ({ open, onClose }) => {
       console.error('Error:', error);
     }
 
-    // Close the modal
     onClose();
   };
 

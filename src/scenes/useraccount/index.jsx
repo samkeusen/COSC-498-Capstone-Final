@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { useTheme } from '@mui/material/styles';
 import { Box, Typography, Button } from '@mui/material';
 import { tokens } from '../../theme';
-import AddCircleOutlineOutlinedIcon from '@mui/icons-material/AddCircleOutlineOutlined';
 import AWSCredentialForm from './AWSCredentialForm';
+import Header from '../../components/Header';
 
 const APIintegration = () => {
   const theme = useTheme();
@@ -15,59 +15,31 @@ const APIintegration = () => {
     <Box
       sx={{
         display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
+        flexDirection: 'column',
+        alignItems: 'flex-start',
         minHeight: '100vh',
         backgroundColor: colors.theme,
         padding: '16px',
         boxSizing: 'border-box',
       }}
     >
+      {/* Header at the top of the page */}
+      <Header title="API Integration" subtitle="Connect Your Cloud Provider" />
+
       <Box
         sx={{
           width: '100%',
           display: 'grid',
           gridTemplateColumns: '1fr 1fr 1fr',
           gap: '16px',
+          marginTop: '5px', 
         }}
       >
-        {/* Microsoft Azure */}
-        <Box
-          sx={{
-            backgroundColor: colors.primary[400],
-            borderRadius: '12px',
-            p: 4,
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            minHeight: '400px',
-          }}
-        >
-          <img src="../../azure.png" alt="Microsoft Azure" style={{ height: '100px', marginBottom: '20px' }} />
-          <Typography variant="h3" color={colors.grey[100]} textAlign="center">
-            Microsoft Azure
-          </Typography>
-          <Box
-            sx={{
-              mt: 2,
-              p: 1,
-              border: `1px solid ${colors.grey[100]}`,
-              borderRadius: '4px',
-              display: 'flex',
-              alignItems: 'center',
-            }}
-          >
-            <AddCircleOutlineOutlinedIcon sx={{ mr: 1 }} />
-            <Typography variant="body1" color={colors.grey[100]}>
-              Connect Cloud Provider
-            </Typography>
-          </Box>
-        </Box>
-
-        {/* Google Cloud */}
+        
+        {/* Azure */}
         <Box
           component={Button}
-          onClick={() => setIsAWSCredentialFormOpen(true)} // Open modal when AWS button is clicked
+          onClick={() => setIsAWSCredentialFormOpen(true)}
           sx={{
             backgroundColor: colors.primary[400],
             borderRadius: '12px',
@@ -78,13 +50,40 @@ const APIintegration = () => {
             minHeight: '500px',
             width: '100%',
             '&:hover': {
-              backgroundColor: colors.grey[300],
+              backgroundColor: colors.grey[500],
+            },
+          }}
+        >
+          <img src="../../azure.png" alt="Microsoft Azure" style={{ height: '100px', marginBottom: '80px' }} />
+          <Typography variant="h3" color={colors.grey[100]} textAlign="center" sx={{ textTransform: 'none' }}>
+            Microsoft Azure
+          </Typography>
+          <Typography variant="body1" color={colors.grey[100]} sx={{ textTransform: 'none' }}>
+            Connect Cloud Provider
+          </Typography>
+        </Box>
+
+        {/* Google Cloud */}
+        <Box
+          component={Button}
+          onClick={() => setIsAWSCredentialFormOpen(true)}
+          sx={{
+            backgroundColor: colors.primary[400],
+            borderRadius: '12px',
+            p: 4,
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            minHeight: '500px',
+            width: '100%',
+            '&:hover': {
+              backgroundColor: colors.grey[500],
             },
           }}
         >
           <img src="../../google.png" alt="Google Cloud" style={{ height: '100px', marginBottom: '80px' }} />
           <Typography variant="h3" color={colors.grey[100]} textAlign="center" sx={{ textTransform: 'none' }}>
-            Amazon Web Services
+            Google Cloud
           </Typography>
           <Typography variant="body1" color={colors.grey[100]} sx={{ textTransform: 'none' }}>
             Connect Cloud Provider
@@ -94,7 +93,7 @@ const APIintegration = () => {
         {/* Amazon Web Services */}
         <Box
           component={Button}
-          onClick={() => setIsAWSCredentialFormOpen(true)} // Open modal when AWS button is clicked
+          onClick={() => setIsAWSCredentialFormOpen(true)}
           sx={{
             backgroundColor: colors.primary[400],
             borderRadius: '12px',
@@ -105,7 +104,7 @@ const APIintegration = () => {
             minHeight: '500px',
             width: '100%',
             '&:hover': {
-              backgroundColor: colors.grey[300],
+              backgroundColor: colors.grey[600],
             },
           }}
         >

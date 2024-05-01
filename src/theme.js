@@ -126,10 +126,10 @@ export const themeSettings = (mode) => {
   const colors = tokens(mode);
 
   return {
-    palette: { // Define the color palette for the theme
+    palette: {
       mode: mode,
       ...(mode === 'dark'
-        ? {     // Settings for dark mode
+        ? {   
           primary: {
             main: colors.primary[500],
           },
@@ -192,7 +192,6 @@ export const themeSettings = (mode) => {
   };
 };
 
-// context for color mode
 export const ColorModeContext = createContext({
     toggleColorMode: () => {}
 });
@@ -208,7 +207,7 @@ export const useMode = () => {
       []
     );
 
-    const theme = useMemo(() => createTheme(themeSettings(mode)), [mode]); // Create the theme from material UI
+    const theme = useMemo(() => createTheme(themeSettings(mode)), [mode]);
 
     return [theme, colorMode];
 };

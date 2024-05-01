@@ -1,7 +1,7 @@
 
 const ManageCommitments =() => {
     return <div>
-        Manage Commitments
+        Enterprise Agreements
     </div>
 }
 

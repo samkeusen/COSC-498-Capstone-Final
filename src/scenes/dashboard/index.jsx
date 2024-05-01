@@ -8,6 +8,7 @@ import LineChart from "../../components/LineChart";
 import GeographyChart from "../../components/GeographyChart";
 import StatBox from "../../components/StatBox";
 import ProgressCircle from "../../components/ProgressCircle";
+import BarChart from "../../components/BarChart";
 
 const Dashboard = () => {
   const theme = useTheme();
@@ -17,7 +18,7 @@ const Dashboard = () => {
     <Box m="10px">
       {/* HEADER */}
       <Box display="flex" justifyContent="space-between" alignItems="center">
-        <Header title="DASHBOARD"/>
+        <Header title="Main Dashboard"/>
 
         <Box sx={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center' }}>
   <Box>
@@ -56,7 +57,7 @@ const Dashboard = () => {
         display="grid"
         gridTemplateColumns="repeat(12, 1fr)"
         gridAutoRows="140px"
-        gap="10px"
+        gap="8px"
       >
         {/* ROW 1 */}
         <Box
@@ -65,13 +66,13 @@ const Dashboard = () => {
           display="flex"
           alignItems="center"
           justifyContent="center"
-          sx={{ borderRadius: '10px' }}
+          sx={{ borderRadius: '8px' }}
         >
           <StatBox
-            title="$386,230.64"
+            title="$2,676,230.51"
             subtitle="Amazon Web Services"
-            progress="0.75"
-            increase="+14%"
+            progress="0.35"
+            increase="+14% YTD"
 
           />
         </Box>
@@ -81,13 +82,13 @@ const Dashboard = () => {
           display="flex"
           alignItems="center"
           justifyContent="center"
-          sx={{ borderRadius: '10px' }}
+          sx={{ borderRadius: '8px' }}
         >
           <StatBox
-            title="$173,762.49"
+            title="$1,473,762.49"
             subtitle="Google Cloud"
-            progress="0.50"
-            increase="+21%"
+            progress="0.42"
+            increase="+21% YTD"
 
           />
         </Box>
@@ -97,24 +98,22 @@ const Dashboard = () => {
           display="flex"
           alignItems="center"
           justifyContent="center"
-          sx={{ borderRadius: '10px' }}
+          sx={{ borderRadius: '8px' }}
         >
           <StatBox
-            title="$63,760.52"
+            title="$1,873,760.00"
             subtitle="Microsoft Azure"
-            progress="0.30"
-            increase="+5%"
-
+            progress="0.34"
+            increase="+5% YTD"
           />
         </Box>
-
 
         {/* ROW 2 */}
         <Box
           gridColumn="span 8"
           gridRow="span 2"
           backgroundColor={colors.primary[400]}
-          borderRadius= '10px'
+          borderRadius= '8px'
         >
           <Box
             mt="25px"
@@ -129,14 +128,14 @@ const Dashboard = () => {
                 fontWeight="600"
                 color={colors.grey[100]}
               >
-                Total Multi-Cloud Spend (YTD)
+                Total Multi-Cloud Spend (FY24)
               </Typography>
               <Typography
                 variant="h3"
                 fontWeight="bold"
                 color={colors.greenAccent[500]}
               >
-                $623,753.65
+                $6,023,753.00
               </Typography>
             </Box>
             <Box>
@@ -157,99 +156,90 @@ const Dashboard = () => {
         sx={{
           backgroundColor: colors.primary[400],
           overflow: "auto",
-          borderRadius: '10px',
+          borderRadius: '8px',
           '&::-webkit-scrollbar': {
-            borderRadius: '10px',
+            borderRadius: '8px',
           }
         }}
       >
+      <Box
+        display="flex"
+        justifyContent="space-between"
+        alignItems="center"
+        borderBottom={`4px solid ${colors.primary[500]}`}
+        p="15px"
+      >
+        <Typography color={colors.grey[100]} variant="h5" fontWeight="600">
+          Enterprise Agreements
+        </Typography>
+      </Box>
+      {mockCommitments.map((commitment, i) => (
         <Box
+          key={`${commitment.txId}-${i}`}
           display="flex"
           justifyContent="space-between"
           alignItems="center"
           borderBottom={`4px solid ${colors.primary[500]}`}
-          colors={colors.grey[100]}
           p="15px"
         >
-          <Typography color={colors.grey[100]} variant="h5" fontWeight="600">
-            Commitments 
-          </Typography>
-        </Box>
-        {mockCommitments.map((commitment, i) => (
-          <Box
-            key={`${commitment.txId}-${i}`}
-            display="flex"
-            justifyContent="space-between"
-            alignItems="center"
-            borderBottom={`4px solid ${colors.primary[500]}`}
-            p="15px"
-          >
-            <Box>
-              <Typography
-                color={colors.greenAccent[500]}
-                variant="h5"
-                fontWeight="600"
-              >
-                {commitment.txId}
-              </Typography>
-              <Typography color={colors.grey[100]}>
-                {commitment.date}
-              </Typography>
-            </Box>
-            <Box color={colors.grey[100]}>{commitment.platform}</Box>
-            <Box>
-              <Typography
-                color={colors.greenAccent[500]}
-                variant="h5"
-                fontWeight="600"
-              >
-                {commitment.progress}
-              </Typography>
+          <Box flexGrow={1}>
+            <Typography
+              color={colors.greenAccent[500]}
+              variant="h5"
+              fontWeight="600"
+            >
+              {commitment.platform}
+            </Typography>
+            <Typography color={colors.grey[100]}>
+              End: {commitment.endDate}
+            </Typography>
+            <Typography color={colors.grey[100]} sx={{ fontSize: '0.8rem' }}>
+               {commitment.notes}
+            </Typography>
+          </Box>
+          <Box>
+            <Typography
+              color={colors.grey[100]}
+              variant="h6"
+              fontWeight="600"
+            >
+              Remaining Balance: ${(commitment.totalCost - commitment.spentCost).toLocaleString()}
+            </Typography>
+            <Box
+              width="100%"
+              height="8px"
+              borderRadius="5px"
+              bgcolor={colors.grey[300]}
+              mt="5px"
+            >
               <Box
-                width="100%"
-                height="8px"
+                height="100%"
+                width={`${(commitment.spentCost / commitment.totalCost) * 100}%`}
                 borderRadius="5px"
-                bgcolor={colors.grey[300]}
-                mt="5px"
-              >
-                <Box
-                  height="100%"
-                  width={`${commitment.progress * 100}%`}
-                  borderRadius="5px"
-                  bgcolor={colors.greenAccent[500]}
-                />
-              </Box>
+                bgcolor={colors.greenAccent[500]}
+              />
             </Box>
           </Box>
-        ))}
-      </Box>
+        </Box>
+      ))}
+    </Box>
 
         {/* ROW 3 */}
         <Box
           gridColumn="span 4"
           gridRow="span 2"
           backgroundColor={colors.primary[400]}
-          p="30px"
-          borderRadius= '10px'
+          borderRadius= '8px'
         >
-          <Typography variant="h5" fontWeight="600">
-            Campaign
-          </Typography>
-          <Box
-            display="flex"
-            flexDirection="column"
-            alignItems="center"
-            mt="25px"
+          <Typography
+            variant="h5"
+            fontWeight="600"
+            sx={{ padding: "30px 30px 0 30px" }}
           >
-            <ProgressCircle size="125" />
-            <Typography
-              variant="h5"
-              color={colors.greenAccent[500]}
-              sx={{ mt: "15px" }}
-            >
-              $48,352 revenue generated
-            </Typography>
-            <Typography>Includes extra misc expenditures and costs</Typography>
+            Marketplace Spending (FY24)
+          </Typography>
+          <Box height="250px" mt="-20px">
+            <BarChart isDashboard={true} />
           </Box>
         </Box>
         <Box
@@ -257,13 +247,13 @@ const Dashboard = () => {
           gridRow="span 2"
           backgroundColor={colors.primary[400]}
           p="30px"
-          borderRadius= '10px'
+          borderRadius= '8px'
 
         >
           <Typography
           variant="h5" fontWeight="600" sx={{ marginBottom: "15px" }} 
        >
-          Global Infrastructure
+          Global Cloud Infrastructure
           </Typography>
           <Box height="200px">
           <GeographyChart isDashboard={true} />
@@ -274,45 +264,49 @@ const Dashboard = () => {
   gridRow="span 2"
   backgroundColor={colors.primary[400]}
   p="30px"
-  borderRadius='10px'
+  borderRadius='8px'
 >
   <Typography variant="h5" fontWeight="600">
     Commitment Spending
   </Typography>
   <Grid container spacing={3}>
     <Grid item xs={4} container direction="column" alignItems="center">
-      <ProgressCircle size="120" />
+      <Box mt={3}>
+        <ProgressCircle size="125" progress="0.75" />
+      </Box>
       <Typography variant="h6" color={colors.grey[100]} mt="15px">
         AWS
       </Typography>
-      <Typography variant="h6" color={colors.grey[100]} mt="5px">
-        $500,000
+      <Typography variant="h6" color={colors.grey[100]} mt="3px">
+        $7,200,000
       </Typography>
     </Grid>
     <Grid item xs={4} container direction="column" alignItems="center">
-      <ProgressCircle size="125" />
+      <Box mt={3}>
+        <ProgressCircle size="125" progress="0.45"/>
+      </Box>
       <Typography variant="h6" color={colors.grey[100]} mt="15px">
         Google Cloud
       </Typography>
-      <Typography variant="h6" color={colors.grey[100]} mt="5px">
-        $300,000
+      <Typography variant="h6" color={colors.grey[100]} mt="3px">
+        $3,600,000
       </Typography>
     </Grid>
     <Grid item xs={4} container direction="column" alignItems="center">
-      <ProgressCircle size="125" />
+      <Box mt={3}>
+        <ProgressCircle size="125" progress="0.28"/>
+      </Box>
       <Typography variant="h6" color={colors.grey[100]} mt="15px">
         Microsoft Azure
       </Typography>
-      <Typography variant="h6" color={colors.grey[100]} mt="5px">
-        $200,000
+      <Typography variant="h6" color={colors.grey[100]} mt="3px">
+        $4,600,000
       </Typography>
     </Grid>
   </Grid>
 </Box>
 
-
-
-      </Box>
+     </Box>
     </Box>
   ); 
 };
