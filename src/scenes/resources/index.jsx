@@ -47,7 +47,7 @@ const AWSDashboard = () => {
     const theme = useTheme();
     const colors = tokens(theme.palette.mode);
 
-    const instanceId = 'i-0467bd34b66c620c0';  // EC2 instance ID
+    const instanceId = 'instanceId';  // EC2 instance ID
     const [metrics, setMetrics] = useState([]);
     const [instanceDetails, setInstanceDetails] = useState(null);
 
